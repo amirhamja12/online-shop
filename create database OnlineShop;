@@ -1,0 +1,12 @@
+	create database OnlineShop;
+	use onlineshop;
+	
+create table Coustomer (coustomer_id varchar (20) primary key, name varchar (30) not null, phone integer(15) unique ,email varchar (30) not null, Address varchar (30) not null);
+	insert into coustomer values ('R-2063','Riad Rahman',01684416051,'riadrahman399@gmail.com','Feni');
+create table product (product_id varchar (20) primary key, product_name varchar (30) not null, price float not null);
+	insert into product values ('Mi-6','Redmi-6',15000);
+	create table shop (shop_id varchar (20) primary key, phone integer (15) unique, address varchar (30) not null);
+	insert into shop values ('Feni-230',017623543723,'Feni');
+	create table orderinfo (order_number varchar(10) primary key, coustomer_code varchar (20) not null, product_code varchar (20) not null ,quantity integer (10) not null,order_date varchar (15) not null, shop_code varchar (20) not null, foreign key (coustomer_code) references coustomer(coustomer_id) on update cascade on delete cascade,foreign key (product_code) references product(product_id) on update cascade on delete cascade, foreign key (shop_code) references shop(shop_id) on update cascade on delete cascade)
+	insert into orderinfo values ('001',’R-2063’,'Mi-6',1,'25-01-2020','Feni-230');
+	
